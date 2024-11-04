@@ -7,7 +7,7 @@ import Slider from "react-slick";
 
 const HotCollections = () => {
   const [nfts, setNFTs] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
 
   const settings = {
     dots: true,
@@ -33,11 +33,11 @@ const HotCollections = () => {
 
   useEffect(() => {
     const fetchNFTs = async () => {
-      // setLoading(true);
+      setLoading(true);
       const res = await getNFTS();
       console.log(`res`, res);
       res?.status === 200 && setNFTs(res.data);
-      // setLoading(false);
+      setLoading(false);
     };
 
     fetchNFTs(); // Call the async function
