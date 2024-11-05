@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
+import { getNewItems } from './../../services/cloud-api';
+import Slider from "react-slick";
+
 
 const NewItems = () => {
+  const [items, setItems] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3, slidesToScroll: 1 }, // For tablet view
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2, slidesToScroll: 1 }, // For mobile view
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1, slidesToScroll: 1 }, // For small mobile screens
+      },
+    ],
+  };
+  useEffect(() => {
+    const fetchItems = async () => {
+      setLoading(true);
+      const res = await getNewItems();
+
+      res?.status === 200 && setItems(res.data);
+      setLoading(false);
+    };
+    fetchItems(); // Call the async function
+    window.scrollTo(0, 0);
+    items.length > 0 && console.log(`items`, items);
+  }, []);
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -13,6 +51,19 @@ const NewItems = () => {
               <h2>New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
+          </div>
+          <div className="slider-container">
+            <Slider {...settings}>
+              {/* <p>pimba</p>
+              <p>pimba 2</p>
+              <p>pimba 3</p>
+              <p>pimba 4</p> */}
+              {items.length > 0 ? (<>
+              
+              </>) : (<>
+              
+              </>)}
+            </Slider>
           </div>
           {new Array(4).fill(0).map((_, index) => (
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>

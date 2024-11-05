@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
-import { getNFTS } from "../../services/hot_collections";
+import { getNFTS } from "../../services/cloud-api";
 import Slider from "react-slick";
 
 const HotCollections = () => {
@@ -35,7 +35,7 @@ const HotCollections = () => {
     const fetchNFTs = async () => {
       setLoading(true);
       const res = await getNFTS();
-      console.log(`res`, res);
+
       res?.status === 200 && setNFTs(res.data);
       setLoading(false);
     };
