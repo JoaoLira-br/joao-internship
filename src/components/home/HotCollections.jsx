@@ -4,7 +4,7 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import { getNFTS } from "../../services/cloud-api";
 import Slider from "react-slick";
-
+import Skeleton from './../UI/Skeleton';
 const HotCollections = () => {
   const [nfts, setNFTs] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
@@ -37,7 +37,7 @@ const HotCollections = () => {
       const res = await getNFTS();
 
       res?.status === 200 && setNFTs(res.data);
-      setLoading(false);
+      // setLoading(false);
     };
 
     fetchNFTs(); // Call the async function
@@ -65,7 +65,8 @@ const HotCollections = () => {
                         <div className="nft_wrap">
                           <Link to="/item-details">
                             {loading ? (
-                              <div className="hot-collection__img--skeleton skeleton"></div>
+                              <Skeleton width={"100%"} height={"80%"} borderRadius={"10px"} />
+                              // <div className="hot-collection__img--skeleton skeleton"></div>
                             ) : (
                               <img
                                 src={nft.nftImage}
@@ -78,7 +79,8 @@ const HotCollections = () => {
                         <div className="nft_coll_pp">
                           <Link to="/author">
                             {loading ? (
-                              <div className="hot-collection__author-img--skeleton skeleton"></div>
+                              <Skeleton width={"60px"} height={"60px"} borderRadius={"100%"} ></Skeleton>
+                              // <div className="hot-collection__author-img--skeleton skeleton"></div>
                             ) : (
                               <>
                                 <img
@@ -94,7 +96,9 @@ const HotCollections = () => {
                         <div className="nft_coll_info">
                           <Link to="/explore">
                           {loading ? (
-                            <div className="hot-collection__nft-title--skeleton skeleton"></div>
+                          
+                            <Skeleton width={"100px"} height={"24px"} borderRadius={"4%"} margin={"0 auto"} display={"block"}></Skeleton>
+                            // <div className="hot-collection__nft-title--skeleton skeleton"></div>
                           ) : (
                             
                             <h4>{nft.title}</h4>
@@ -102,7 +106,8 @@ const HotCollections = () => {
                           </Link>
                           {loading ? (
                             
-                            <div className="hot-collection__nft-code--skeleton skeleton"></div>
+                            <Skeleton width={"60px"} height={"12px"} borderRadius={"4%"} ></Skeleton>
+                            // <div className="hot-collection__nft-code--skeleton skeleton"></div>
                           ) : (
                             
                             <span>{nft.code}</span>
