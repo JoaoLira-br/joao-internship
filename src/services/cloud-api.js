@@ -17,7 +17,15 @@ async function getNewItems(){
     return error;
   }
 }
+async function getTopSellers(){
+  try {
+    const res = await axios.get(`${baseURL}/topSellers`);
+    return res  // Return the data directly from the response
+  } catch (error) {
+    return error;
+  }
+}
   
 
-export { getNFTS, getNewItems }
+export { getNFTS, getNewItems, getTopSellers }
 
