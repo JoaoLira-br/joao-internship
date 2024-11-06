@@ -9,6 +9,15 @@ async function getNFTS() {
       return error;
     }
   }
+async function getNewItems(){
+  try {
+    const res = await axios.get(`${baseURL}/newItems`);
+    return res  // Return the data directly from the response
+  } catch (error) {
+    return error;
+  }
+}
   
 
-export { getNFTS }
+export { getNFTS, getNewItems }
+

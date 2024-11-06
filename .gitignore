@@ -4,3 +4,6 @@ node_modules
 build/
 firebase.json
 diary.md
+questions.md
+src/pimba1.jsx
+src/pimba2.jsx
