@@ -4,6 +4,7 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import { getExplore } from "./../../services/cloud-api";
 import Items from "./Items";
+import Item from "./Item";
 
 const ExploreItems = () => {
   const [itemsExplore, setItemsExplore] = React.useState([]);
@@ -15,13 +16,9 @@ const ExploreItems = () => {
       const res = await getExplore();
 
       res?.status === 200 && setItemsExplore(res.data);
-      setLoading(false);
+        setLoading(false); 
     };
     fetchItems(); // Call the async function
-
-  }, []);
-  useEffect(() => {
-    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -36,22 +33,35 @@ const ExploreItems = () => {
       </div>
       {loading ? (
         <>
-          <Items items={itemsExplore} skeleton={true}></Items>
+            {new Array(12).fill(0).map((item, index) => (
+            <div
+              key={index}
+              className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+              style={{ display: "block", backgroundSize: "cover" }}
+            >
+              <Item key={index} item={null} skeleton={true}></Item>
+            </div>
+          ))}
+        </>
+      ) : itemsExplore.length > 0 ? (
+        <>
+          {console.log(`items`, itemsExplore)}
+          {itemsExplore.map((item, index) => (
+            <div
+              key={index}
+              className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+              style={{ display: "block", backgroundSize: "cover" }}
+            >
+              <Item key={index} item={item} skeleton={false}></Item>
+            </div>
+          ))}
         </>
       ) : (
-        itemsExplore.length > 0 ? (
         <>
-        {console.log(`items`, itemsExplore)}
-        
-          <Items nftItems={itemsExplore} skeleton={false}></Items>
+          <p>No items Available</p>;
         </>
-        ) : (
-          <>
-            <p>No items Available</p>;
-          </>
-        )
       )}
-      
+
       <div className="col-md-12 text-center">
         <Link to="" id="loadmore" className="btn-main lead">
           Load more

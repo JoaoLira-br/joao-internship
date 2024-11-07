@@ -21,7 +21,7 @@ const Items = ({ nftItems = [], skeleton = false }) => {
       {skeleton ? (
         <>
           {console.log(`pimba skeleton`)}
-          {new Array(8).fill(0).map((_, index) => (
+          {new Array(12).fill(0).map((_, index) => (
             <div
               key={index}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -84,11 +84,11 @@ const Items = ({ nftItems = [], skeleton = false }) => {
         <>
           {console.log(`item`, nftItems[0])}
 
-          {nftItems.map((item, index) => {
-            return (
+          {nftItems.map((item, index) =>  (
               <div
                 key={index}
-                className="item-wrapper"
+                className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                style={{ display: "block", backgroundSize: "cover" }}
 
               >
                 <div className="nft__item">
@@ -144,8 +144,8 @@ const Items = ({ nftItems = [], skeleton = false }) => {
                   </div>
                 </div>
               </div>
-            );
-          })}
+            )
+          )}
         </>
       )}
     </>
