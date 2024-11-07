@@ -14,6 +14,7 @@ const ExploreItems = () => {
     if(nftCount >= itemsExplore.length) return;
     setNftCount((prev) => prev + 4);
   }
+  /
   function filterExplore(filter) {
     getExploreFilter(filter).then((res) => {
       res?.status === 200 && setItemsExplore(res.data);
@@ -55,7 +56,7 @@ const ExploreItems = () => {
         </>
       ) : itemsExplore.length > 0 ? (
         <>
-          {console.log(`items`, itemsExplore)}
+
           {itemsExplore.slice(0, nftCount).map((item, index) => (
             <div
               key={index}

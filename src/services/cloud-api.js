@@ -35,7 +35,7 @@ async function getExplore(){
 }
 async function getExploreFilter(filter, setter){
   
-  console.log(`filter`, filter)
+
   try {
     const res = await axios.get(`${baseURL}/explore?filter=${filter}`);
     return res

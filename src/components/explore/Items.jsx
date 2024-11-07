@@ -20,7 +20,7 @@ const Items = ({ nftItems = [], skeleton = false }) => {
     <>
       {skeleton ? (
         <>
-          {console.log(`pimba skeleton`)}
+
           {new Array(12).fill(0).map((_, index) => (
             <div
               key={index}
@@ -82,7 +82,7 @@ const Items = ({ nftItems = [], skeleton = false }) => {
         </>
       ) : (
         <>
-          {console.log(`item`, nftItems[0])}
+
 
           {nftItems.map((item, index) =>  (
               <div

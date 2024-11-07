@@ -19,7 +19,7 @@ const TopSellers = () => {
     };
     fetchItems(); // Call the async function
 
-    console.log(`items`, topSellers);
+
   },[]);
   return (
     <section id="section-popular" className="pb-5">
