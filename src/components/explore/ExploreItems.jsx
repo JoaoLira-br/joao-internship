@@ -2,14 +2,24 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
-import { getExplore } from "./../../services/cloud-api";
+import { getExplore, getExploreFilter} from "./../../services/cloud-api";
 import Items from "./Items";
 import Item from "./Item";
 
 const ExploreItems = () => {
   const [itemsExplore, setItemsExplore] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [nftCount, setNftCount] = React.useState(8);
+  function handleLoadMore() {
+    if(nftCount >= itemsExplore.length) return;
+    setNftCount((prev) => prev + 4);
+  }
+  function filterExplore(filter) {
+    getExploreFilter(filter).then((res) => {
+      res?.status === 200 && setItemsExplore(res.data);
+    })
 
+  }
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
@@ -24,7 +34,7 @@ const ExploreItems = () => {
   return (
     <>
       <div>
-        <select id="filter-items" defaultValue="">
+        <select id="filter-items" defaultValue="" onChange={(e) => filterExplore(e.target.value)} >
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
           <option value="price_high_to_low">Price, High to Low</option>
@@ -46,7 +56,7 @@ const ExploreItems = () => {
       ) : itemsExplore.length > 0 ? (
         <>
           {console.log(`items`, itemsExplore)}
-          {itemsExplore.map((item, index) => (
+          {itemsExplore.slice(0, nftCount).map((item, index) => (
             <div
               key={index}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -63,7 +73,7 @@ const ExploreItems = () => {
       )}
 
       <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
+        <Link to="" id="loadmore" className="btn-main lead" onClick={handleLoadMore}>
           Load more
         </Link>
       </div>

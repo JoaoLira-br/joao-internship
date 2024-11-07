@@ -33,7 +33,18 @@ async function getExplore(){
     return error;
   }
 }
+async function getExploreFilter(filter, setter){
+  
+  console.log(`filter`, filter)
+  try {
+    const res = await axios.get(`${baseURL}/explore?filter=${filter}`);
+    return res
+
+  } catch (error) {
+    return error;
+  }
+}
   
 
-export { getNFTS, getNewItems, getTopSellers, getExplore }
+export { getNFTS, getNewItems, getTopSellers, getExplore, getExploreFilter }
 
