@@ -18,7 +18,7 @@ const NewItems = () => {
     };
     fetchItems(); // Call the async function
 
-    console.log(`items`, items);
+
   },[]);
   return (
     <section id="section-items" className="no-bottom">

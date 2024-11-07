@@ -25,7 +25,26 @@ async function getTopSellers(){
     return error;
   }
 }
+async function getExplore(){
+  try {
+    const res = await axios.get(`${baseURL}/explore`);
+    return res  // Return the data directly from the response
+  } catch (error) {
+    return error;
+  }
+}
+async function getExploreFilter(filter, setter){
   
 
-export { getNFTS, getNewItems, getTopSellers }
+  try {
+    const res = await axios.get(`${baseURL}/explore?filter=${filter}`);
+    return res
+
+  } catch (error) {
+    return error;
+  }
+}
+  
+
+export { getNFTS, getNewItems, getTopSellers, getExplore, getExploreFilter }
 
