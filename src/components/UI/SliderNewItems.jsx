@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import Skeleton from "./Skeleton";
 import CountdownTimer from "./CountdownTimer";
-import Items from "../explore/Items";
-import Item from "../explore/Item";
+import Items from "./Items";
+import Item from "./Item";
 
 const SliderNewItems = ({ items = [], settings, skeleton = false }) => {
   return (

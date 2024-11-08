@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import { getExplore, getExploreFilter} from "./../../services/cloud-api";
-import Items from "./Items";
-import Item from "./Item";
+import Items from "../UI/Items";
+import Item from "../UI/Item";
 
 const ExploreItems = () => {
   const [itemsExplore, setItemsExplore] = React.useState([]);

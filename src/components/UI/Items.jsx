@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
-import CountdownTimer from "../UI/CountdownTimer";
-import Skeleton from "../UI/Skeleton";
+import CountdownTimer from "./CountdownTimer";
+import Skeleton from "./Skeleton";
 // sample json {
 // "id": 1,
 // "authorId": 83937449,

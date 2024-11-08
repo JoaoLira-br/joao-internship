@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CountdownTimer from "../UI/CountdownTimer";
-import Skeleton from "../UI/Skeleton";
+import CountdownTimer from "./CountdownTimer";
+import Skeleton from "./Skeleton";
+import { type } from "@testing-library/user-event/dist/type";
 
-const Item = ({ item, skeleton = false }) => {
+const Item = ({ item = [], skeleton = false, authorImage}) => {
+
+  // console.log(...author);
+
   return (
     <div className="nft__item">
       <div className="author_list_pp">
@@ -30,7 +34,7 @@ const Item = ({ item, skeleton = false }) => {
           >
             <img
               className="lazy"
-              src={item.authorImage}
+              src={item.authorImage || authorImage}
               alt={`${item.authorName || "Author"}'s profile`}
             />
           </Link>
