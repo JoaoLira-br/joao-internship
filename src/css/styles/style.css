@@ -16795,6 +16795,14 @@ height: 80%;
 
 
 
+/* ITEM DETAILS */
+
+.item_info_like,
+.item_info_views{
+  height: 28px;
+}
+
+
 
 
 

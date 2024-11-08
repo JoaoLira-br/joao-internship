@@ -71,15 +71,15 @@ const Item = ({ item = [], skeleton = false, authorImage}) => {
           <>
             <Link to={``}>
               <Skeleton
-                width={`250px`}
-                height={`250px`}
+                width={`100%`}
+                height={`350px`}
                 borderRadius={`10px`}
               ></Skeleton>
             </Link>
           </>
         ) : (
           <>
-            <Link to={`/item-details/${item.nftId}`}>
+            <Link to={`/item-details/nftId=${item.nftId}`}>
               <img
                 src={item.nftImage}
                 className="lazy nft__item_preview"
@@ -109,7 +109,7 @@ const Item = ({ item = [], skeleton = false, authorImage}) => {
           </>
         ) : (
           <>
-            <Link to={`/item-details/${item.nftId}`}>
+            <Link to={`/item-details/nftId=${item.nftId}`}>
               <h4>{item.title}</h4>
             </Link>
             <div className="nft__item_price">{item.price} ETH</div>

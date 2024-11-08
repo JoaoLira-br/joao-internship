@@ -59,7 +59,8 @@ const SliderHotCollections = ({ nfts = [], settings, skeleton = false }) => {
               <div style={{ padding: "0 10px" }} key={index}>
                 <div className="nft_coll">
                   <div className="nft_wrap">
-                    <Link to="/item-details">
+
+                    <Link to={`/item-details/nftId=${nft.nftId}`}>
                       <img
                         src={nft.nftImage}
                         className="lazy img-fluid"

@@ -20,6 +20,7 @@ async function getNewItems() {
 async function getTopSellers() {
   try {
     const res = await axios.get(`${baseURL}/topSellers`);
+
     return res; // Return the data directly from the response
   } catch (error) {
     return error;
@@ -44,11 +45,20 @@ async function getExploreFilter(filter, setter) {
 async function getAuthor(id) {
   try {
     const res = await axios.get(`${baseURL}/authors?author=${id}`);
-    console.log(`res`, res.data);
+
     return res; // Return the data directly from the response
   } catch (error) {
     return error;
   }
 }
 
-export { getNFTS, getNewItems, getTopSellers, getExplore, getExploreFilter, getAuthor };
+async function getItemDetails(id) {
+  try{
+    const res = await axios.get(`${baseURL}/itemDetails?nftId=${id}`);
+    return res;
+  }catch(error){
+    return error;
+  }
+}
+
+export { getNFTS, getNewItems, getTopSellers, getExplore, getExploreFilter, getAuthor, getItemDetails };
