@@ -38,7 +38,7 @@ const ItemDetails = () => {
                 ) : (
                   <>
                     <img
-                      src={nftImage}
+                      src={nft.nftImage || nftImage}
                       className="img-fluid img-rounded mb-sm-30 nft-image"
                       alt=""
                     />
@@ -53,7 +53,7 @@ const ItemDetails = () => {
                     </>
                   ) : (
                     <>
-                      <h2>Rainbow Style #194</h2>
+                      <h2>{nft.title} #{nft.tag}</h2>
                     </>
                   )}
 
@@ -67,11 +67,11 @@ const ItemDetails = () => {
                       <>
                         <div className="item_info_views">
                           <i className="fa fa-eye"></i>
-                          100
+                          {nft.views}
                         </div>
                         <div className="item_info_like">
                           <i className="fa fa-heart"></i>
-                          74
+                          {nft.likes}
                         </div>
                       </>
                     )}
@@ -83,9 +83,7 @@ const ItemDetails = () => {
                   ) : (
                     <>
                       <p>
-                        doloremque laudantium, totam rem aperiam, eaque ipsa
-                        quae ab illo inventore veritatis et quasi architecto
-                        beatae vitae dicta sunt explicabo.
+                       {nft.description}
                       </p>
                     </>
                   )}
@@ -106,10 +104,10 @@ const ItemDetails = () => {
                             </>
                           ) : (
                             <>
-                              <Link to="/author">
+                              <Link to={`/author/${nft.ownerId}`}>
                                 <img
                                   className="lazy"
-                                  src={AuthorImage}
+                                  src={nft.ownerImage}
                                   alt=""
                                 />
                                 <i className="fa fa-check"></i>
@@ -132,7 +130,7 @@ const ItemDetails = () => {
                         ) : (
                           <>
                             <div className="author_list_info">
-                              <Link to="/author">Monica Lucas</Link>
+                              <Link to={`/author/${nft.ownerId}`}>{nft.ownerName}</Link>
                             </div>
                           </>
                         )}
@@ -157,10 +155,10 @@ const ItemDetails = () => {
                             </>
                           ) : (
                             <>
-                              <Link to="/author">
+                              <Link to={`/author/${nft.creatorId}`}>
                                 <img
                                   className="lazy"
-                                  src={AuthorImage}
+                                  src={nft.creatorImage}
                                   alt=""
                                 />
                                 <i className="fa fa-check"></i>
@@ -183,7 +181,7 @@ const ItemDetails = () => {
                         ) : (
                           <>
                             <div className="author_list_info">
-                              <Link to="/author">Monica Lucas</Link>
+                              <Link to={`/author/${nft.creatorId}`}>{nft.creatorName}</Link>
                             </div>
                           </>
                         )}
@@ -201,7 +199,7 @@ const ItemDetails = () => {
                       <>
                         <div className="nft-item-price">
                           <img src={EthImage} alt="" />
-                          <span>1.85</span>
+                          <span>{nft.price}</span>
                         </div>
                       </>
                     )}
