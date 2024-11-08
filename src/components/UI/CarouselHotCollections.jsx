@@ -33,7 +33,7 @@ const CarouselHotCollections = ({ nfts, loading }) => {
     <div className="slider-container">
       {
         !loading ? (<>{nfts.length > 0 ? (<> 
-        <SliderHotCollections nfts={nfts} settings={settings}></SliderHotCollections>
+        <SliderHotCollections nfts={nfts} settings={settings} skeleton={false}></SliderHotCollections>
         </>) : (<> 
            <p>No items Available</p>;
         </>)} </>) : (<>

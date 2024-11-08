@@ -31,7 +31,7 @@ const Author = () => {
       setLoading(true);
       const res = await getAuthor(id);
       res.status === 200 && setAuthorData(res.data);
-      console.log(`authorData`, authorData);
+
       setLoading(false);
     };
     fetchAuthor(); // Call the async function
@@ -133,7 +133,7 @@ const Author = () => {
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  {console.log(`data:`, authorData)}
+
                   <AuthorItems items={authorData.nftCollection} loading={loading} authorImage={authorData.authorImage}/>
                 </div>
               </div>
