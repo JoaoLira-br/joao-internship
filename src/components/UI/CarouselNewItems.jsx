@@ -37,7 +37,7 @@ const CarouselNewItems = ({ items, loading }) => {
         !loading ? (<>{items.length > 0 ? (<> 
         <SliderNewItems items={items} settings={settings}></SliderNewItems>
         </>) : (<> 
-           <p>No items Available</p>;
+
         </>)} </>) : (<>
         <SliderNewItems items={items} settings={settings} skeleton={true}></SliderNewItems>
         </>)

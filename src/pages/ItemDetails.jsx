@@ -20,7 +20,7 @@ const ItemDetails = () => {
     };
     fetchItemDetails(); // Call the async function
 
-    window.scrollTo(0, 0);
+
   }, []);
 
   return (

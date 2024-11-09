@@ -9,7 +9,7 @@ const Item = ({ item = [], skeleton = false, authorImage}) => {
   // console.log(...author);
 
   return (
-    <div className="nft__item">
+    <div className="nft__item" data-aos="fade" data-aos-duration="800"   data-aos-easing="ease-in">
       <div className="author_list_pp">
         {skeleton ? (
           <Link
