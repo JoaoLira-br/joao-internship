@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
@@ -6,6 +6,9 @@ import Item from "../UI/Item";
 
 const AuthorItems = ({ items = [], loading = false, authorImage }) => {
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div className="de_tab_content">
       <div className="tab-1">

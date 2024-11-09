@@ -35,6 +35,7 @@ const Author = () => {
       setLoading(false);
     };
     fetchAuthor(); // Call the async function
+    window.scroll(0, 0);
   },[]);
 
   return (
