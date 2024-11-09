@@ -43,7 +43,15 @@ const Item = ({ item = [], skeleton = false, authorImage}) => {
 
       {!skeleton && (
         <>
-          {item.expiryDate && <CountdownTimer expiryDate={item.expiryDate} />}
+          {item.expiryDate ? 
+          
+          <CountdownTimer expiryDate={item.expiryDate} />
+        
+        : (
+          <div className="de_expired">
+            Expired
+          </div>
+        )}
         </>
       )}
 

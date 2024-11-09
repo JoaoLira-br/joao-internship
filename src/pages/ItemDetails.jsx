@@ -19,6 +19,7 @@ const ItemDetails = () => {
       setLoading(false);
     };
     fetchItemDetails(); // Call the async function
+    window.scroll(0, 0);
 
 
   }, []);

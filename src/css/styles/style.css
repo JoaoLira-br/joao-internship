@@ -14151,6 +14151,18 @@ a.read_more i {
   z-index: 100;
   color: #0d0c22;
 }
+.de_expired{
+  position: absolute;
+  right: 20px;
+  background: #ffffff;
+  padding: 1px 10px;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border: solid 2px #dddddd;
+  z-index: 100;
+  color: #DE3C4B;
+}
 
 .de_countdown.bg-color-secondary {
   border: none;
