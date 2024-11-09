@@ -27,15 +27,15 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Top Sellers</h2>
+              <h2 data-aos="fade" data-aos-duration="800"   data-aos-easing="ease-in">Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
-            <ol className="author_list">
+          <div className="col-md-12" data-aos="fade" data-aos-duration="900"   data-aos-easing="ease-in">
+            <ol className="author_list" >
               {loading ? new Array(12).fill(0).map((_, index) => (
                   <li key={index}>
-                    <div className="author_list_pp">
+                    <div className="author_list_pp" >
                       <Link to="">
                       <Skeleton width={`49px`} height={`49px`} borderRadius={`100%`}></Skeleton>
                         {/* <img

@@ -56,7 +56,7 @@ const SliderHotCollections = ({ nfts = [], settings, skeleton = false }) => {
         <>
           <Slider {...settings}>
             {nfts.map((nft, index) => (
-              <div style={{ padding: "0 10px" }} key={index}>
+              <div style={{ padding: "0 10px" }} key={index} data-aos="fade" data-aos-duration="800"   data-aos-easing="ease-in">
                 <div className="nft_coll">
                   <div className="nft_wrap">
 

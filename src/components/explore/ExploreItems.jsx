@@ -69,7 +69,7 @@ const ExploreItems = () => {
         </>
       ) : (
         <>
-          <p>No items Available</p>;
+
         </>
       )}
 
